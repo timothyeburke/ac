@@ -1,0 +1,15 @@
+dependencies:
+  pre:
+    - npm install
+
+  post:
+    - grunt sass
+    - grunt traceur
+    - grunt concat
+    - grunt uglify
+
+test:
+  override:
+    - grunt sass
+    - grunt jshint
+    - grunt jsbeautifier:verify

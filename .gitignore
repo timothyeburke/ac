@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+assets/scripts/*.js
+assets/scripts/controllers/*.js
+assets/scripts/resources/*.js
+assets/scripts/resolvers/*.js
+assets/scripts/services/*.js
+assets/style/*.css
+assets/style/*.css.map
+
