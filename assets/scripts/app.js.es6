@@ -3,8 +3,11 @@ angular.module('acApp', [
     'ngRoute'
 ]).config(
     (
-        $routeProvider
+        $routeProvider,
+        localStorageServiceProvider
     ) => {
+
+        localStorageServiceProvider.setPrefix('ac')
 
         $routeProvider
             .when('/', {

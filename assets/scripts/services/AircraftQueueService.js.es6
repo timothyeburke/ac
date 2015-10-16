@@ -2,7 +2,7 @@ angular.module('acApp').factory('AircraftQueueService', (
     StorageResource
 ) => {
 
-    const queues = {
+    const queues = StorageResource.get('queues') || {
         passenger: {
             large: [],
             small: []
@@ -11,6 +11,10 @@ angular.module('acApp').factory('AircraftQueueService', (
             large: [],
             small: []
         }
+    }
+
+    function persistQueues() {
+        StorageResource.set('queues', queues)
     }
 
     function hasAny(type) {
@@ -33,11 +37,14 @@ angular.module('acApp').factory('AircraftQueueService', (
     function enqueueAircraft(aircraft) {
         aircraft.queuedWhen = new Date()
         queues[aircraft.type][aircraft.size] = aircraft
+        persistQueues()
     }
 
     function dequeueAircraft() {
         const type = getNextType()
-        return getNext(type)
+        const ac = getNext(type)
+        persistQueues()
+        return ac
     }
 
     function peekNextAircraft() {
