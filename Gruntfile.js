@@ -89,8 +89,8 @@ module.exports = function(grunt) {
                     'node_modules/angular/angular.min.js',
                     'node_modules/angular-route/angular-route.min.js',
                     'node_modules/angular-sanitize/angular-sanitize.min.js',
+                    'node_modules/angular-local-storage/dist/angular-local-storage.js',
                     'node_modules/lodash/index.js',
-                    'assets/scripts/google.js',
                     'assets/scripts/app.js',
                     'assets/scripts/**/*.js'
                 ],
