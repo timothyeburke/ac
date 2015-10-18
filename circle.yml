@@ -11,7 +11,8 @@ dependencies:
 
 test:
   pre:
-    - bash -c "http-server -p 8000 &"
+    - http-server -p 8000
+        background: true
 
   override:
     - grunt jshint
