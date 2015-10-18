@@ -7,10 +7,13 @@ dependencies:
     - grunt traceur
     - grunt concat
     - grunt uglify
+    - webdriver-manager update
 
 test:
   override:
     - grunt jshint
     - grunt jsbeautifier:verify
     - npm test
+    - http-server:
+      background: true
     - protractor protractor.conf.js
