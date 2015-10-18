@@ -6,6 +6,5 @@ exports.config = {
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.addReporter(new SpecReporter({displayStacktrace: true}));
   },
-  seleniumServerJar: 'tests/selenium/selenium-server-standalone-2.40.0.jar',
   specs: ['tests/e2e/*.e2e.test.js']
 };
