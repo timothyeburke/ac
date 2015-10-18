@@ -10,7 +10,6 @@ dependencies:
 
 test:
   override:
-    - grunt sass
     - grunt jshint
     - grunt jsbeautifier:verify
     - npm test
