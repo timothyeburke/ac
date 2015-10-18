@@ -40,6 +40,14 @@ angular.module('acApp').factory('AircraftQueueService', (
 
     // Public Methods:
 
+    function clear() {
+        queues.passenger.large.length = 0;
+        queues.passenger.small.length = 0;
+        queues.cargo.large.length = 0;
+        queues.cargo.small.length = 0;
+        persistQueues();
+    }
+
     function dequeueAircraft() {
         const type = getNextType()
         const ac = getNext(type)
@@ -64,6 +72,7 @@ angular.module('acApp').factory('AircraftQueueService', (
     }
 
     return {
+        clear,
         dequeueAircraft,
         enqueueAircraft,
         peekAllAircraftInOrder,
