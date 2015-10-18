@@ -53,6 +53,24 @@ describe('aircraftqueue', function() {
         });
     });
 
+    describe('enqueue', function() {
+        it('Should enqueue many aircraft', function() {
+            var aircraft = [
+                {type: 'cargo', size: 'small'},
+                {type: 'cargo', size: 'large'},
+                {type: 'passenger', size: 'small'},
+                {type: 'passenger', size: 'large'}
+            ];
+
+            for (var i = 0; i < 1000; i++) {
+                AircraftQueueService.enqueueAircraft(aircraft[i % 4]);
+            }
+
+            var peekAll = AircraftQueueService.peekAllAircraftInOrder();
+            expect(peekAll.length).toEqual(1000);
+        });
+    });
+
     describe('dequeue', function() {
         it('Should dequeue two of the same type and size aircraft in the correct order', function() {
             var aircraft1 = {type: 'passenger', size: 'large', order: 1};
