@@ -1,5 +1,5 @@
 exports.config = {
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://localhost:8000/',
   framework: 'jasmine2',
   onPrepare: function() {
     var SpecReporter = require('jasmine-spec-reporter');

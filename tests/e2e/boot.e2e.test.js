@@ -1,6 +1,6 @@
 describe('boot page', function() {
     beforeEach(function() {
-        browser.get('http://localhost:8080');
+        browser.get('http://localhost:8000');
     });
 
     it('should have a title', function() {
