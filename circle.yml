@@ -10,10 +10,11 @@ dependencies:
     - webdriver-manager update
 
 test:
+  pre:
+    - http-server
+
   override:
     - grunt jshint
     - grunt jsbeautifier:verify
     - npm test
-    - http-server:
-      background: true
     - protractor protractor.conf.js
