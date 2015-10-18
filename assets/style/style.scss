@@ -1,3 +1,40 @@
 @import "normalize.scss";
 
 
+body {
+	background-color: #333;
+}
+
+.boot {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-color: rgba(0,0,0,.5);
+
+	.inner {
+		color: white;
+		padding: 30px;
+		font-size: 30px;
+		border-radius: 5px;
+		text-align: center;
+
+		width: 500px;
+
+		margin: 0px auto;
+		margin-top: 200px;
+		background-color: black;
+
+		button {
+			border-radius: 3px;
+			padding: 20px;
+			margin-top: 40px;
+			background-color: blue;
+
+			border: none;
+		}
+	}
+}
+
+

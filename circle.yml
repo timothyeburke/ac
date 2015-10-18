@@ -13,3 +13,4 @@ test:
     - grunt jshint
     - grunt jsbeautifier:verify
     - npm test
+    - protractor protractor.conf.js

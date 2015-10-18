@@ -3,10 +3,9 @@ module.exports = function(config) {
         basePath: '',
         frameworks: ['jasmine'],
         files: [
-            'node_modules/angular/angular.min.js',
+            'assets/scripts/build.min.js',
             'node_modules/angular-mocks/angular-mocks.js',
-            'assets/scripts/**/*.js',
-            'tests/**/*.test.js'
+            'tests/unit/*.test.js'
         ],
         reporters: ['mocha'],
         mochaReporter: {

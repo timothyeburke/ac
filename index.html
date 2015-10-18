@@ -1,10 +1,16 @@
 <!doctype html>
 <html ng-app="acApp">
     <head>
-        <title>AC</title>
+        <title>Aircraft Queue</title>
         <link rel="stylesheet" href="assets/style/style.css" />
     </head>
     <body ng-controller="AppCtrl">
+    	<div class="boot" ng-show="!booted">
+    		<div class="inner">
+    			Aircraft Queue is not started.
+    			<button ng-click="boot()">Start System</button>
+    		</div>
+    	</div>
         <div class="content" ng-view></div>
     </body>
     <script src="assets/scripts/build.min.js"></script>
