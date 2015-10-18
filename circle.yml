@@ -13,3 +13,4 @@ test:
     - grunt sass
     - grunt jshint
     - grunt jsbeautifier:verify
+    - npm test

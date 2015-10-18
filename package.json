@@ -5,6 +5,7 @@
   "dependencies": {
     "angular": "^1.4.7",
     "angular-local-storage": "^0.2.2",
+    "angular-mocks": "^1.4.7",
     "angular-route": "^1.4.7",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
@@ -14,8 +15,16 @@
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-sass": "^1.1.0-beta",
     "grunt-traceur": "^0.5.4",
+    "jasmine-core": "^2.3.4",
     "jshint-stylish": "^2.0.1",
+    "karma": "^0.13.11",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.1.1",
     "load-grunt-tasks": "^3.3.0",
     "lodash": "^3.10.1"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
   }
 }
