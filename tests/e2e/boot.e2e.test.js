@@ -13,7 +13,7 @@ describe('boot page', function() {
     });
 
     it('should boot when boot is clicked', function() {
-        var bootButton = element(by.css('.boot .inner button'));
+        var bootButton = element(by.css('.overlay .boot button'));
         bootButton.click();
 
         var boot = element(by.css('.boot'));
