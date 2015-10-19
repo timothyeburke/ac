@@ -120,4 +120,43 @@ describe('aircraftqueue', function() {
             expect(dequeuedAircraft4.size).toEqual('small');
         });
     });
+
+    describe('queue size', function() {
+        it('should return 0 with nothing queued', function() {
+            expect(AircraftQueueService.queueSize()).toEqual(0);
+        });
+    });
+
+    describe('queue size', function() {
+        it('should return 1 with 1 queued', function() {
+            AircraftQueueService.enqueueAircraft({type: 'cargo', size: 'small'});
+            expect(AircraftQueueService.queueSize()).toEqual(1);
+        });
+    });
+
+    describe('queue size', function() {
+        it('should return zero after emptying queue', function() {
+            AircraftQueueService.enqueueAircraft({type: 'cargo', size: 'small'});
+            AircraftQueueService.dequeueAircraft();
+            expect(AircraftQueueService.queueSize()).toEqual(0);
+        });
+    });
+
+    describe('queue size', function() {
+        it('should return n when n queued of different types', function() {
+            var aircraft1 = {type: 'cargo', size: 'small'};
+            var aircraft2 = {type: 'cargo', size: 'large'};
+            var aircraft3 = {type: 'passenger', size: 'small'};
+            var aircraft4 = {type: 'passenger', size: 'large'};
+
+            for(var i = 0; i < 2; i++) {
+                AircraftQueueService.enqueueAircraft(aircraft1);
+                AircraftQueueService.enqueueAircraft(aircraft2);
+                AircraftQueueService.enqueueAircraft(aircraft3);
+                AircraftQueueService.enqueueAircraft(aircraft4);
+            }
+
+            expect(AircraftQueueService.queueSize()).toEqual(8);
+        });
+    });
 });

@@ -71,11 +71,19 @@ angular.module('acApp').factory('AircraftQueueService', (
         return _.first(queues[type][size])
     }
 
+    function queueSize() {
+        return _.reduce(queues, (result, n) => {
+            result += n.large.length + n.small.length
+            return result
+        }, 0)
+    }
+
     return {
         clear,
         dequeueAircraft,
         enqueueAircraft,
         peekAllAircraftInOrder,
-        peekNextAircraft
+        peekNextAircraft,
+        queueSize
     }
 })
