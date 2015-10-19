@@ -6,5 +6,8 @@ exports.config = {
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.addReporter(new SpecReporter({displayStacktrace: true}));
   },
+  jasmineNodeOpts: {
+   print: function() {}
+  },
   specs: ['tests/e2e/*.e2e.test.js']
 };
