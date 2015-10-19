@@ -1,3 +1,30 @@
-<div class="home">
-	Hello World!
+<div class="home" ng-show="booted">
+	<button class="primary" ng-click="showAdd()">Add Aircraft</button>
+	<button class="primary" ng-click="dequeue()">Dequeue Aircraft</button>
+	<div class="overlay" ng-show="showAddModal">
+		<div class="addModal">
+			Type:
+			<select ng-model="addType">
+				<option></option>
+				<option ng-repeat="type in typeOptions" ng-bind="type" ng-value="type"></option>
+			</select>
+
+			Size:
+			<select ng-model="addSize">
+				<option></option>
+				<option ng-repeat="size in sizeOptions" ng-bind="size" ng-value="size"></option>
+			</select>
+
+
+			<div>
+				<button class="secondary" ng-click="cancelAdd()">Cancel</button>
+				<button class="primary" ng-click="add()" ng-disabled="!canAdd()">Add to Queue</button>
+			</div>
+		</div>
+	</div>
+	<div class="lastAircraft" ng-show="lastAircraftDequeued">
+		Last aircraft dequeued: <br />
+		Size: {{lastAircraftDequeued.size}}
+		Type: {{lastAircraftDequeued.type}}
+	</div>
 </div>

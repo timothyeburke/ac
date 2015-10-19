@@ -11,7 +11,7 @@ angular.module('acApp', [
 
         $routeProvider
             .when('/', {
-                controller: 'HomeController',
+                controller: 'HomeCtrl',
                 templateUrl: 'assets/views/home.html'
             })
     }
