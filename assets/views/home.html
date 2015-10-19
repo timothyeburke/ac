@@ -1,30 +1,37 @@
 <div class="home" ng-show="booted">
-	<button class="primary" ng-click="showAdd()">Add Aircraft</button>
-	<button class="primary" ng-click="dequeue()">Dequeue Aircraft</button>
+	<div ng-repeat="aircraft in dequeuedAircraft"
+		 class="dequeued-aircraft {{aircraft.type}} {{aircraft.size}}">
+		<span class="info" ng-bind="aircraft.size"></span>
+		<span class="info" ng-bind="aircraft.type"></span>
+		<p class="this-should-be">(this should be a plane graphic)</p>
+	</div>
 	<div class="overlay" ng-show="showAddModal">
 		<div class="addModal">
-			Type:
-			<select ng-model="addType">
-				<option></option>
-				<option ng-repeat="type in typeOptions" ng-bind="type" ng-value="type"></option>
-			</select>
-
-			Size:
-			<select ng-model="addSize">
-				<option></option>
-				<option ng-repeat="size in sizeOptions" ng-bind="size" ng-value="size"></option>
-			</select>
-
-
-			<div>
+			<div class="toggle-row">
+				<button class="toggle"
+						ng-class="{selected: addType === 'passenger'}"
+						ng-click="addType = 'passenger'">Passenger</button>
+				<button class="toggle"
+						ng-class="{selected: addType === 'cargo'}"
+						ng-click="addType = 'cargo'">Cargo</button>
+			</div>
+			<div class="toggle-row">
+				<button class="toggle"
+						ng-class="{selected: addSize === 'small'}"
+						ng-click="addSize = 'small'">Small</button>
+				<button class="toggle"
+						ng-class="{selected: addSize === 'large'}"
+						ng-click="addSize = 'large'">Large</button>
+			</div>
+			<div class="button-row">
 				<button class="secondary" ng-click="cancelAdd()">Cancel</button>
-				<button class="primary" ng-click="add()" ng-disabled="!canAdd()">Add to Queue</button>
+				<button class="primary add" ng-click="add()" ng-disabled="!canAdd()">Add to Queue</button>
 			</div>
 		</div>
 	</div>
-	<div class="lastAircraft" ng-show="lastAircraftDequeued">
-		Last aircraft dequeued: <br />
-		Size: {{lastAircraftDequeued.size}}
-		Type: {{lastAircraftDequeued.type}}
-	</div>
+	<footer>
+		<button class="primary" ng-click="showAdd()">Add Aircraft</button>
+		<button class="primary" ng-click="dequeue()">Dequeue Aircraft</button>
+		<button class="primary" ng-click="showQueue()">Show Queue</button>
+	</footer>
 </div>

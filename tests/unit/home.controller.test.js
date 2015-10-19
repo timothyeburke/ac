@@ -85,7 +85,7 @@ describe('homectrl', function() {
     describe('on dequeue aircraft', function() {
         it('should dequeue and get nothing if nothing is queued', function() {
             $scope.dequeue();
-            expect($scope.lastAircraftDequeued).toEqual(undefined);
+            expect($scope.dequeuedAircraft.length).toEqual(0);
         });
     });
 
@@ -96,7 +96,8 @@ describe('homectrl', function() {
             $scope.addSize = 'large';
             $scope.add();
             $scope.dequeue();
-            expect($scope.lastAircraftDequeued).toEqual({type: 'cargo', size: 'small'});
+            expect($scope.dequeuedAircraft.length).toEqual(1);
+            expect($scope.dequeuedAircraft[0]).toEqual({type: 'cargo', size: 'small'});
         });
     })
 });

@@ -7,12 +7,16 @@ body {
 button {
     border-radius: 3px;
     border: none;
-    margin-top: 40px;
     padding: 20px;
+    font-size: 30px;
 
     &.primary {
-        background-color: blue;
+        background-color: #55F;
         color: white;
+
+        &.add {
+            background-color: #3C883C;
+        }
     }
 
     &.secondary {
@@ -36,7 +40,7 @@ button {
 }
 
 .boot, .addModal {
-    background-color: black;
+    background-color: #131111;
     border-radius: 5px;
     color: white;
     font-size: 30px;
@@ -45,11 +49,111 @@ button {
     padding: 30px;
     text-align: center;
     width: 500px;
+
+    button {
+        margin: 10px;
+    }
 }
 
 .home {
     text-align: center;
+    overflow: hidden;
 
+    .toggle-row {
+        padding: 10px;
+
+        .toggle {
+            width: 200px;
+            background-color: white;
+            color: #131111;
+
+
+            &.selected {
+                background-color: #55F;
+                color: white;
+            }
+
+            &:first-child {
+                border-right: 1px solid #E4E4E4;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                margin-right: -4px;
+            }
+
+            &:last-child {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                margin-left: -5px;
+            }
+        }
+    }
+
+    .button-row {
+        padding: 10px;
+    }
+
+    @keyframes slidein {
+        from {
+            left: 0px;
+            top: 70%;
+        }
+
+        50% {
+            left: 30%;
+            top: 55%;
+        }
+
+        to {
+            left: 100%;
+            top: -20%;
+        }
+    }
+
+    .dequeued-aircraft {
+        color: white;
+        left: 100%;
+        top: -20%;
+        padding: 20px;
+        width: 225px;
+        position: absolute;
+
+        -webkit-animation-duration: 5s;
+        -webkit-animation-name: slidein;
+        -webkit-animation-iteration-count: 1;
+
+        .info {
+            text-transform: capitalize;
+        }
+
+        &.cargo {
+            background-color: #351C15;
+        }
+
+        &.passenger {
+            background-color: rgb(48, 76, 178);
+        }
+
+        &.large {
+            font-size: 40px;
+        }
+
+        &.small {
+            font-size: 25px;
+        }
+
+        .this-should-be {
+            font-size: 15px;
+        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        padding: 30px;
+        background-color: #131111;
+    }
 }
 
 
