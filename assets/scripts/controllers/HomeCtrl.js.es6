@@ -1,12 +1,16 @@
 angular.module('acApp').controller('HomeCtrl', (
     $scope,
+    $timeout,
     AircraftQueueService
 ) => {
+
+    window.$scope = $scope
 
     $scope.typeOptions = ['passenger', 'cargo']
     $scope.sizeOptions = ['large', 'small']
     $scope.dequeuedAircraft = []
     $scope.showAddModal = false
+    $scope.showQueue = false
 
     $scope.showAdd = () => {
         $scope.showAddModal = true
@@ -37,8 +41,15 @@ angular.module('acApp').controller('HomeCtrl', (
         const lastAircraftDequeued = AircraftQueueService.dequeueAircraft()
         if (lastAircraftDequeued) {
             $scope.dequeuedAircraft.push(lastAircraftDequeued)
-        } else {
-            // show some message that queue is empty
+            $timeout(() => {
+                $scope.dequeuedAircraft.shift()
+            }, 6000)
         }
     }
+
+    $scope.toggleQueue = () => {
+        $scope.showQueue = !$scope.showQueue
+    }
+
+    $scope.getQueue = () => AircraftQueueService.peekAllAircraftInOrder()
 })

@@ -11,7 +11,7 @@ describe('homectrl', function() {
                 clear: function() {},
                 dequeueAircraft: function() { return enqueued ? {type: 'cargo', size: 'small'} : undefined },
                 enqueueAircraft: function() { enqueued = true },
-                peekAllAircraftInOrder: function() {},
+                peekAllAircraftInOrder: function() { return enqueued ? [{type: 'cargo', size: 'small'}] : []},
                 peekNextAircraft: function() {}
             }
         });
@@ -99,5 +99,43 @@ describe('homectrl', function() {
             expect($scope.dequeuedAircraft.length).toEqual(1);
             expect($scope.dequeuedAircraft[0]).toEqual({type: 'cargo', size: 'small'});
         });
-    })
+    });
+
+    describe('on show queue', function() {
+        it('should not show queue on start', function() {
+            expect($scope.showQueue).toEqual(false);
+        });
+    });
+
+    describe('on show queue', function() {
+        it('should show queue after clicking show queue', function() {
+            $scope.toggleQueue();
+            expect($scope.showQueue).toEqual(true);
+        });
+    });
+
+    describe('on show queue', function() {
+        it('should hide queue after clicking show queue twice', function() {
+            $scope.toggleQueue();
+            $scope.toggleQueue();
+            expect($scope.showQueue).toEqual(false);
+        });
+    });
+
+    describe('on show queue', function() {
+        it('should empty queue if no queued', function() {
+            expect($scope.getQueue().length).toEqual(0);
+        });
+    });
+
+    describe('on show queue', function() {
+        it('should return the upcoming queue if queued', function() {
+            $scope.showAdd();
+            $scope.addType = 'cargo';
+            $scope.addSize = 'large';
+            $scope.add();
+            expect($scope.getQueue().length).toEqual(1);
+            expect($scope.getQueue()[0]).toEqual({type: 'cargo', size: 'small'});
+        });
+    });
 });

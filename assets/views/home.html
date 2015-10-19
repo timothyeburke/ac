@@ -1,6 +1,6 @@
 <div class="home" ng-show="booted">
-	<div ng-repeat="aircraft in dequeuedAircraft"
-		 class="dequeued-aircraft {{aircraft.type}} {{aircraft.size}}">
+	<div ng-repeat="(key, aircraft) in dequeuedAircraft"
+		 class="aircraft animate {{aircraft.type}} {{aircraft.size}}">
 		<span class="info" ng-bind="aircraft.size"></span>
 		<span class="info" ng-bind="aircraft.type"></span>
 		<p class="this-should-be">(this should be a plane graphic)</p>
@@ -29,9 +29,17 @@
 			</div>
 		</div>
 	</div>
+	<div class="queue" ng-show="showQueue">
+		<div ng-repeat="aircraft in getQueue()"
+		 	 class="aircraft list {{aircraft.type}} {{aircraft.size}}">
+			<span class="info" ng-bind="aircraft.size"></span>
+			<span class="info" ng-bind="aircraft.type"></span>
+			<p class="this-should-be">(this should be a plane graphic)</p>
+		</div>
+	</div>
 	<footer>
 		<button class="primary" ng-click="showAdd()">Add Aircraft</button>
 		<button class="primary" ng-click="dequeue()">Dequeue Aircraft</button>
-		<button class="primary" ng-click="showQueue()">Show Queue</button>
+		<button class="primary" ng-click="toggleQueue()" ng-bind="(showQueue ? 'Hide' : 'Show') + ' Queue'"></button>
 	</footer>
 </div>
