@@ -5,36 +5,44 @@ body {
 	background-color: #333;
 }
 
-.boot {
+button {
+	border-radius: 3px;
+	padding: 20px;
+	margin-top: 40px;
+	border: none;
+
+	&.primary {
+		background-color: blue;
+		color: white;
+	}
+
+	&.secondary {
+		background-color: #999;
+		color: white;
+	}
+}
+
+.overlay {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
 	left: 0px;
 	background-color: rgba(0,0,0,.5);
+}
 
-	.inner {
-		color: white;
-		padding: 30px;
-		font-size: 30px;
-		border-radius: 5px;
-		text-align: center;
+.boot {
+	color: white;
+	padding: 30px;
+	font-size: 30px;
+	border-radius: 5px;
+	text-align: center;
 
-		width: 500px;
+	width: 500px;
 
-		margin: 0px auto;
-		margin-top: 200px;
-		background-color: black;
-
-		button {
-			border-radius: 3px;
-			padding: 20px;
-			margin-top: 40px;
-			background-color: blue;
-
-			border: none;
-		}
-	}
+	margin: 0px auto;
+	margin-top: 200px;
+	background-color: black;
 }
 
 

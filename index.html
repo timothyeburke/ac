@@ -5,10 +5,10 @@
         <link rel="stylesheet" href="assets/style/style.css" />
     </head>
     <body ng-controller="AppCtrl">
-    	<div class="boot" ng-show="!booted">
-    		<div class="inner">
+    	<div class="overlay" ng-show="!booted">
+    		<div class="boot">
     			Aircraft Queue is not started.
-    			<button ng-click="boot()">Start System</button>
+    			<button class="primary" ng-click="boot()">Start System</button>
     		</div>
     	</div>
         <div class="content" ng-view></div>
