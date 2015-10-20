@@ -3,9 +3,7 @@ angular.module('acApp').controller('HomeCtrl', (
     $timeout,
     AircraftQueueService
 ) => {
-
-    window.$scope = $scope
-
+    
     $scope.typeOptions = ['passenger', 'cargo']
     $scope.sizeOptions = ['large', 'small']
     $scope.dequeuedAircraft = []
