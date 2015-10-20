@@ -41,11 +41,11 @@ angular.module('acApp').factory('AircraftQueueService', (
     // Public Methods:
 
     function clear() {
-        queues.passenger.large.length = 0;
-        queues.passenger.small.length = 0;
-        queues.cargo.large.length = 0;
-        queues.cargo.small.length = 0;
-        persistQueues();
+        queues.passenger.large.length = 0
+        queues.passenger.small.length = 0
+        queues.cargo.large.length = 0
+        queues.cargo.small.length = 0
+        persistQueues()
     }
 
     function dequeueAircraft() {
@@ -57,7 +57,7 @@ angular.module('acApp').factory('AircraftQueueService', (
 
     function enqueueAircraft(aircraft) {
         aircraft.queuedWhen = new Date()
-        queues[aircraft.type][aircraft.size].push(aircraft);
+        queues[aircraft.type][aircraft.size].push(aircraft)
         persistQueues()
     }
 
