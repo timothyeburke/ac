@@ -32,6 +32,9 @@ The application broken into the following components:
 ## Test
 Testing, both unit and e2e have been setup to run on the continuious integration service [Circle CI](https://circleci.com/). [Code Climate](https://codeclimate.com) provides the code quality grading.
 
+### Code Quality
+Part of the build test process includes verifying that I've run `jsbeautifier` on my code before committing it. This ensures consistent code formatting. Additionally, `jshint` is run to ensure that my code has been properly linted for common issues.
+
 ### Unit
 Unit testing is located in `tests/unit`. These tests are run using karma and `npm test`. There are three test specs:
 - `aircraftqueue.service.test.js` which tests `AircraftQueueService`
